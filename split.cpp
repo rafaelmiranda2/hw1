@@ -18,6 +18,31 @@ void split(Node*& in, Node*& odds, Node*& evens)
 {
   /* Add code here */
 // WRITE YOUR CODE HERE
+  if (in != nullptr) {
+        checkIfEven(in, odds, evens);
+        split(in->next, odds, evens);
+    }
 }
 
 /* If you needed a helper function, write it here */
+void checkIfEven(Node*& in, Node*& odds, Node*& evens) {
+    if(in->value % 2 == 0) {
+        append(evens, in);
+    }
+    else {
+        append(odds, in);
+    }
+}
+
+void append(Node*& List, Node*& in) {
+    if (List == nullptr) {
+        List = new Node(in->value, nullptr);
+        return;
+    }
+    if (List->next == nullptr) {
+        List->next = new Node(in->value, nullptr);
+    }
+    else {
+        append(List->next, in);
+    }
+}
