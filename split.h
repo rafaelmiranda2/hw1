@@ -20,5 +20,5 @@ struct Node
 void split(Node*& in, Node*& odds, Node*& evens);
 void checkIfEven(Node*& in, Node*& odds, Node*& evens);
 void append(Node*& List, Node*& in);
-
+void clearInput(Node*& in);
 #endif

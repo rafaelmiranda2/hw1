@@ -21,7 +21,8 @@ void split(Node*& in, Node*& odds, Node*& evens)
   if (in != nullptr) {
         checkIfEven(in, odds, evens);
         split(in->next, odds, evens);
-    }
+        clearInput(in);
+  }
 }
 
 /* If you needed a helper function, write it here */
@@ -45,4 +46,12 @@ void append(Node*& List, Node*& in) {
     else {
         append(List->next, in);
     }
+}
+void clearInput(Node*& in) {
+  if (in != nullptr) {
+    Node* temp = in;
+    in = in->next;
+    delete temp;
+    clearInput(in);
+  }
 }
